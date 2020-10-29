@@ -1,23 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { requestMorePlanets, requestPlanets } from './../../redux/planetsReducer';
+import Card from './../Card/Card'
 
 const Library = ({ planets, requestPlanets }) => {
 
     useEffect(() => {
-        requestPlanets();
-    }, [])
+        if (planets.length === 0) {
+            requestPlanets();
+        }
+    })
+
+    const UrlToID = (url) => +url.match(/(?<=planets\/)\d+/i);
+
+    console.log('+++')
 
     return (
         <div>
             { planets.map(planet => (
-                <div id={+planet.url.match(/(?<=planets\/)\d+/i)} key={+planet.url.match(/(?<=planets\/)\d+/i)}>
-                    Name { planet.name }
-                    Climate { planet.climate }
-                    Population { planet.population }
-                </div>
+                <Card
+                    key={UrlToID(planet.url)}
+                    id={UrlToID(planet.url)}
+                    //id={fromUrlToID(planet.url)}
+                    name={planet.name}
+                    climate={planet.climate}
+                    population={planet.population}
+                />
             ))}
         </div>
     )
@@ -29,10 +39,7 @@ const mapStateToProps = (state) => ({
     isLoading: state.planets.isLoading,
 });
 
-export default compose(
-    withRouter,
-    connect(
-        mapStateToProps,
-        { requestMorePlanets, requestPlanets }
-    )
-)(Library)
+export default connect(
+    mapStateToProps,
+    { requestMorePlanets, requestPlanets }
+)(React.memo(Library))

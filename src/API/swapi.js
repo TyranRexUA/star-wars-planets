@@ -5,13 +5,13 @@ const instance = axios.create({
 })
 
 const swapi = {
-    getPlanets() {
+    getPlanets() { // get planets(page=1)
         return instance.get('planets/').then(response => {
             return response.data
         })
     },
 
-    getMorePlanets(next) {
+    getMorePlanets(next) { // get planets(page=2, 3, ...), depends on url(next)
         return axios.get(next).then(response => response.data)
     },
 
@@ -21,8 +21,7 @@ const swapi = {
         })
     },
 
-    gePersonName(url) {
-        console.log('+++')
+    getPersonName(url) { // get person name from person url
         return axios.get(url).then(response => response.data.name)
     },
 }

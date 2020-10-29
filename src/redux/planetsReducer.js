@@ -12,17 +12,17 @@ const initialState = {
 
 const planetsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_PLANETS:
+        case SET_PLANETS: // when componentDidMount add planets(page=1) to state
             return {...state,
                 planets: [...action.payload.results],
                 next: action.payload.next
             };
-        case ADD_PLANETS:
+        case ADD_PLANETS: // add planets(page=2, 3, ....) to state
             return {...state,
                 planets: [...state.planets, ...action.payload.results],
                 next: action.payload.next
             };
-        case TOGGLE_IS_LOADING:
+        case TOGGLE_IS_LOADING: // show preloader
             return {...state,
                 isLoading: action.isLoading
             };

@@ -18,7 +18,7 @@ const initialState = {
 
 const currentPlanetReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_PLANET_DETAILS:
+        case SET_PLANET_DETAILS: // add planet details to state, whitout residents property
             return {...state,
                 name: action.payload.name,
                 rotation_period: action.payload.rotation_period,
@@ -28,11 +28,11 @@ const currentPlanetReducer = (state = initialState, action) => {
                 terrain: action.payload.terrain,
                 population: action.payload.population,
             };
-            case SET_PLANET_RESIDENTS:
+            case SET_PLANET_RESIDENTS: // add residents property
                 return {...state,
                     residents: action.payload,
                 };
-        case TOGGLE_IS_LOADING:
+        case TOGGLE_IS_LOADING: // show preloader
             return {
                 ...state,
                 isLoading: action.isLoading
@@ -51,9 +51,11 @@ export const requestPlanetDetails = (id) => {
         dispatch(toggleIsLoading(true));
         let response = await swapi.getPlanetDetails(id);
         dispatch(setPlanetDetails(response));
-            let residentsResponse = await Promise.all(
-                response.residents.map(person => swapi.gePersonName(person))
+
+            let residentsResponse = await Promise.all( // add residents property such as array of names (from array of urls)
+                response.residents.map(person => swapi.getPersonName(person))
             )
+
             dispatch(setPlanetResidents(residentsResponse))
             dispatch(toggleIsLoading(false));
     }

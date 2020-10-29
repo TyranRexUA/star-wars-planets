@@ -8,7 +8,7 @@ const reducers = combineReducers({
     currentPlanet: currentPlanetReducer,
 });
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // ReduxDevTools for Chrome
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleWare)))
 
 export default store;
