@@ -10,7 +10,7 @@ const swapi = {
     },
 
     getMorePlanets(next) { // get planets(page=2, 3, ...), depends on url(next)
-        return axios.get(next).then(response => response.data)
+        return axios.get(next.replace('http', 'https')).then(response => response.data)
     },
 
     getPlanetDetails(id) {
@@ -18,7 +18,7 @@ const swapi = {
     },
 
     getPersonName(url) { // get person name from person url
-        return axios.get(url).then(response => response.data.name)
+        return axios.get(url.replace('http', 'https')).then(response => response.data.name)
     },
 
     searchPlanets(searchValue) { // search planets(page=1)

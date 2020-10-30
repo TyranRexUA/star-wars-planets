@@ -11,7 +11,7 @@ import cn from 'classnames';
 const Library = ({ planets, requestPlanets, requestMorePlanets, next, isGlobalLoading, isLoading, match, searchPlanets, ...props }) => {
 
     useEffect(() => {
-        if (match.params.searchValue) {
+        if (match.params.searchValue) { // if url has searcvh/:searchValue
             searchPlanets(match.params.searchValue);
         } else {
             requestPlanets();
@@ -23,6 +23,12 @@ const Library = ({ planets, requestPlanets, requestMorePlanets, next, isGlobalLo
     return (isGlobalLoading
         ? <Preloader style={{ height: 'calc(100vh - 70px)' }} />
         : <>
+            {planets.length === 0 &&
+                <div className={s.NotFound}>
+                    PLANETS NO FOUND
+                </div>
+            }
+
             <div className={s.Library}>
                 {planets.map(planet => (
                     <Card

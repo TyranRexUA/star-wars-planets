@@ -13,7 +13,11 @@ const SearchForm = ({ setSearchValue, match, searchValue, history }) => {
         }
     }, [match.params.searchValue, setSearchValue])
 
-    const search = (e) => {
+    window.addEventListener('unhandledrejection', (e) => { // if 404 error go to url /404
+        if (e.reason.request.status === 404) history.push('/404');
+    })
+
+    const search = (e) => { // go to search url
         e.preventDefault();
         if (searchValue) {
             history.push(`/search/${searchValue}`);

@@ -15,7 +15,7 @@ const PlanetPage = ({ match, requestPlanetDetails, details, isLoading, ...props 
     }, [match.params.id, requestPlanetDetails]) // when change url(planet/:id)
 
     return (isLoading
-        ? <Preloader style={{height: 'calc(100vh - 30px)'}}/>
+        ? <Preloader style={{height: 'calc(100vh - 70px)'}}/>
         : <div className={s.PlanetPage}>
 
             <div className={s.InfoBlock}>
