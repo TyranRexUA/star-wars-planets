@@ -3,23 +3,26 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import Preloader from '../Preloader/Preloader';
 import { requestPlanetDetails } from './../../redux/currentPlanetReducer';
 import InfoField from './InfoField/InfoField';
+import s from './PlanetPage.module.scss';
 
-const PlanetPage = ({ match, requestPlanetDetails, details, ...props }) => {
-
-    console.log(details)
+const PlanetPage = ({ match, requestPlanetDetails, details, isLoading, ...props }) => {
 
     useEffect(() => {
         requestPlanetDetails(match.params.id);
     }, [match.params.id])
 
-    return (
-        <div>
-
-            {Object.entries(details).map(([key, values]) => (
-                <InfoField key={key} propertyName={key} values={values}/>
-            ))}
+    return (isLoading
+        ? <Preloader style={{height: '100vh'}}/>
+        : <div className={s.PlanetPage}>
+            
+            {Object.entries(details).map(([key, values]) => {
+                if (values && values.length > 0) {
+                    return <InfoField key={key} propertyName={key} values={values} />
+                }
+            })}
 
         </div>
     )

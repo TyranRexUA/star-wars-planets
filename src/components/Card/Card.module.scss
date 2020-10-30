@@ -1,0 +1,50 @@
+@import './../../variables';
+
+.Card {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	overflow: hidden;
+	z-index: 10;
+    text-align: left;
+    padding: 20px 10px;
+    box-shadow: $shadow;
+    text-decoration: none;
+    transition: transform .4s;
+
+    $num-colors: 100;
+
+    @for $i from 0 to $num-colors {
+        &:nth-child(#{$i}) {
+            background: linear-gradient(90deg, rgba($cardBgColor, .4) 0%, rgba($cardBgColor, .85) 20%, rgba($cardBgColor, 1) 50%), url('./../../img/cardsBg/space#{random(10)}.jpg') left / cover no-repeat;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+    
+    &__property {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        margin-left: 50px;
+        border-top: 2px solid rgba($color: $mainFontColor, $alpha: .2);
+
+        &:first-child {
+            border-top: none;
+        }
+
+        .name {
+            font-size: 0.8rem;
+            line-height: 1rem;
+            color: $mainFontColor;
+        }
+        .value {
+            text-align: right;
+            margin-left: 10px;
+            color: $secondaryFontColor;
+        }
+    }
+}

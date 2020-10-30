@@ -1,11 +1,16 @@
 import React from 'react';
+import s from './InfoField.module.scss';
 
-export default ({ propertyName, values }) => {
+export default ({ propertyName, values }) => (
 
-    return (
+    <div className={s.InfoField}>
 
-        <div>
-            <span>{propertyName && propertyName.toUpperCase().replace('_', ' ')}</span>
+        <span className={s.name}>
+            {propertyName && propertyName.toUpperCase().replace('_', ' ')}
+        </span>
+
+        <div className={s.values}>
+
             {Array.isArray(values)
                 ? values.map(value => (
                     <span key={value}>
@@ -16,6 +21,9 @@ export default ({ propertyName, values }) => {
                     {values}
                 </span>
             }
+
         </div>
-    )
-};
+
+    </div>
+    
+);

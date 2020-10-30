@@ -1,0 +1,55 @@
+@import './variables';
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 14px;
+	font-weight: 400;
+	color: $mainFontColor;
+
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+
+	a {
+		font-weight: 600;
+		color: $secondaryFontColor;
+		position: relative;
+	}
+
+	::-webkit-scrollbar {
+		width: 5px;
+		height: 6px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 5px;
+		background: gray;
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(90deg, rgba($mainColor, .95) 0%, rgba($mainColor, .8) 100%), url(./img/Bg.jpg) center / cover no-repeat;
+  background-attachment: fixed;
+  background-color: $mainColor;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

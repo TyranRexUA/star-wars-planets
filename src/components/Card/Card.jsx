@@ -1,31 +1,38 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import s from './Card.module.scss';
 
 const Card = ({ id, name, climate, population }) => {
 
     return (
-        <NavLink to={`/planet/${id}`}>
-            <div>
-                Name 
-                <span>
+        <NavLink className={s.Card} to={`/planet/${id}`}>
+            <div className={s.Card__property}>
+                <div className={s.name}>
+                    Name
+                </div>
+                <div className={s.value}>
                     {name}
-                </span>
+                </div>
             </div>
 
-            <div>
-                Climate 
-                <span>
+            <div className={s.Card__property}>
+                <div className={s.name}>
+                    Climate
+                </div>
+                <div className={s.value}>
                     {climate}
-                </span>
+                </div>
             </div>
 
-            <div>
-                Population 
-                <span>
+            <div className={s.Card__property}>
+                <div className={s.name}>
+                    Population
+                    </div>
+                <div className={s.value}>
                     {population}
-                </span>
+                </div>
             </div>
-            
+
         </NavLink>
     )
 };

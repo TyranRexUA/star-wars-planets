@@ -1,0 +1,24 @@
+@import './../../variables';
+
+.Library {
+	padding: 40px 30px 40px 30px;
+	display: grid;
+	gap: 30px;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-auto-rows: 150px;
+}
+
+.showMoreBtn {
+	margin: 0 auto 40px auto;
+	border-radius: 5px;
+	min-width: 105px;
+	min-height: 40px;
+	background: $cardBgColor;
+	padding: 10px;
+	width: fit-content;
+	cursor: pointer;
+}
+
+.showMoreBtn_preloader {
+	background: url(./../../img/preloader.svg) 50% 50% / contain no-repeat, $cardBgColor;
+}
