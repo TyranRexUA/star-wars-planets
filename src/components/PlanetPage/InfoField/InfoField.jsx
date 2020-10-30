@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './InfoField.module.scss';
 
-export default ({ propertyName, values }) => (
+const InfoField = ({ propertyName, values }) => (
 
     <div className={s.InfoField}>
 
@@ -27,3 +27,5 @@ export default ({ propertyName, values }) => (
     </div>
     
 );
+
+export default InfoField;

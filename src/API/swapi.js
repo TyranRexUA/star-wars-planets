@@ -6,9 +6,7 @@ const instance = axios.create({
 
 const swapi = {
     getPlanets() { // get planets(page=1)
-        return instance.get('planets/').then(response => {
-            return response.data
-        })
+        return instance.get('planets/').then(response => response.data)
     },
 
     getMorePlanets(next) { // get planets(page=2, 3, ...), depends on url(next)
@@ -16,14 +14,16 @@ const swapi = {
     },
 
     getPlanetDetails(id) {
-        return instance.get(`planets/${id}/`).then(response => {
-            return response.data
-        })
+        return instance.get(`planets/${id}/`).then(response => response.data)
     },
 
     getPersonName(url) { // get person name from person url
         return axios.get(url).then(response => response.data.name)
     },
+
+    searchPlanets(searchValue) { // search planets(page=1)
+        return axios.get(`https://swapi.dev/api/planets/?search=${searchValue}`).then(response => response.data)
+    }
 }
 
 export default swapi;

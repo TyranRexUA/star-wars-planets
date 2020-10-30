@@ -1,16 +1,31 @@
-import './App.css';
+import './App.scss';
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Library from './components/Library/Library';
-import Card from './components/Card/Card';
 import PlanetPage from './components/PlanetPage/PlanetPage';
+import SearchForm from './components/SearchForm/SearchForm';
+
+const SearchFormAndLibrary = (
+  <>
+    <SearchForm />
+    <Library />
+  </>
+)
+
+const SearchFormAndPlanetPage = (
+  <>
+    <SearchForm />
+    <PlanetPage />
+  </>
+)
 
 const App = () => {
   return (
     <div className="App">
       <Switch>
-        <Route exact path='/' render={() => <Library />} />
-        <Route path='/planet/:id' render={() => <PlanetPage />} />
+        <Route exact path='/' render={() => SearchFormAndLibrary} />
+        <Route path='/planet/:id' render={() => SearchFormAndPlanetPage} />
+        <Route path='/search/:searchValue' render={() => SearchFormAndLibrary} />
         <Route path='*' render={() => <Redirect to='/404' />} />
       </Switch>
     </div>
