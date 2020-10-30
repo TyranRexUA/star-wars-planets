@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import { useLastLocation } from 'react-router-last-location';
 import Preloader from '../Preloader/Preloader';
 import { requestMorePlanets, requestPlanets, searchPlanets } from './../../redux/planetsReducer';
 import Card from './../Card/Card';
@@ -10,13 +11,15 @@ import cn from 'classnames';
 
 const Library = ({ planets, requestPlanets, requestMorePlanets, next, isGlobalLoading, isLoading, match, searchPlanets, ...props }) => {
 
+    const lastLocation = useLastLocation();
+
     useEffect(() => {
         if (match.params.searchValue) { // if url has searcvh/:searchValue
             searchPlanets(match.params.searchValue);
-        } else {
+        } else if (planets.length === 0 || (lastLocation && (/(search|\/404)/).test(lastLocation.pathname))) { // if previous location was /search/... or /404
             requestPlanets();
         }
-    }, [match.params.searchValue, searchPlanets, props.location, requestPlanets])
+    }, [match.params.searchValue, searchPlanets, props.location, requestPlanets, lastLocation])
 
     const PlanetUrlToID = (url) => +url.match(/(?<=planets\/)\d+/i);
 
