@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.529c91ac.chunk.css",
-    "main.js": "/static/js/main.5bba91a6.chunk.js",
-    "main.js.map": "/static/js/main.5bba91a6.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.831d9717.js",
-    "runtime-main.js.map": "/static/js/runtime-main.831d9717.js.map",
-    "static/js/2.c40e6688.chunk.js": "/static/js/2.c40e6688.chunk.js",
-    "static/js/2.c40e6688.chunk.js.map": "/static/js/2.c40e6688.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.529c91ac.chunk.css.map": "/static/css/main.529c91ac.chunk.css.map",
-    "static/js/2.c40e6688.chunk.js.LICENSE.txt": "/static/js/2.c40e6688.chunk.js.LICENSE.txt",
-    "static/media/index.scss": "/static/media/Bg.23815dc3.jpg",
-    "static/media/Preloader.module.scss": "/static/media/preloader.ffedcdbb.svg",
-    "static/media/SearchForm.module.scss": "/static/media/search.11a19e98.svg",
-    "static/media/Card.module.scss": "/static/media/space9.98bcf65c.jpg",
-    "static/media/star-wars-gif.gif": "/static/media/star-wars-gif.153166d7.gif"
+    "main.css": "./static/css/main.7584196f.chunk.css",
+    "main.js": "./static/js/main.79744507.chunk.js",
+    "main.js.map": "./static/js/main.79744507.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.578b85fe.js",
+    "runtime-main.js.map": "./static/js/runtime-main.578b85fe.js.map",
+    "static/js/2.cfe2974d.chunk.js": "./static/js/2.cfe2974d.chunk.js",
+    "static/js/2.cfe2974d.chunk.js.map": "./static/js/2.cfe2974d.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.7584196f.chunk.css.map": "./static/css/main.7584196f.chunk.css.map",
+    "static/js/2.cfe2974d.chunk.js.LICENSE.txt": "./static/js/2.cfe2974d.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "./static/media/Bg.23815dc3.jpg",
+    "static/media/Preloader.module.scss": "./static/media/preloader.ffedcdbb.svg",
+    "static/media/SearchForm.module.scss": "./static/media/search.11a19e98.svg",
+    "static/media/Card.module.scss": "./static/media/space9.98bcf65c.jpg",
+    "static/media/star-wars-gif.gif": "./static/media/star-wars-gif.153166d7.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.831d9717.js",
-    "static/js/2.c40e6688.chunk.js",
-    "static/css/main.529c91ac.chunk.css",
-    "static/js/main.5bba91a6.chunk.js"
+    "static/js/runtime-main.578b85fe.js",
+    "static/js/2.cfe2974d.chunk.js",
+    "static/css/main.7584196f.chunk.css",
+    "static/js/main.79744507.chunk.js"
   ]
 }
