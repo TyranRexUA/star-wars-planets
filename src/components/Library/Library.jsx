@@ -14,12 +14,12 @@ const Library = ({ planets, requestPlanets, requestMorePlanets, next, isGlobalLo
     const lastLocation = useLastLocation();
 
     useEffect(() => {
-        if (match.params.searchValue) { // if url has searcvh/:searchValue
+        if (match.params.searchValue) { // if url has search/:searchValue
             searchPlanets(match.params.searchValue);
         } else if (planets.length === 0 || (lastLocation && (/(search|\/404)/).test(lastLocation.pathname))) { // if previous location was /search/... or /404
             requestPlanets();
         }
-    }, [match.params.searchValue, searchPlanets, props.location, requestPlanets, lastLocation])
+    }, [match.params.searchValue, searchPlanets, props.location, requestPlanets, lastLocation, planets.length])
 
     const PlanetUrlToID = (url) => +url.match(/(?<=planets\/)\d+/i);
 
