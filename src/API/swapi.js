@@ -1,28 +1,32 @@
-import axios from 'axios';
+import { BASE_URL } from '../constants/general';
 
-const instance = axios.create({
-    baseURL: 'https://swapi.dev/api/',
-})
+const convertResponse = async (response) => {
+    if (response.ok) {
+        const result = await response.json();
+        return result;
+    }
+    throw new Error();
+}
 
 const swapi = {
     getPlanets() { // get planets(page=1)
-        return instance.get('planets/').then(response => response.data)
+        return fetch(BASE_URL + 'planets/').then(convertResponse);
     },
 
     getMorePlanets(next) { // get planets(page=2, 3, ...), depends on url(next)
-        return axios.get(next).then(response => response.data)
+        return fetch(next).then(convertResponse)
     },
 
     getPlanetDetails(id) {
-        return instance.get(`planets/${id}/`).then(response => response.data)
+        return fetch(BASE_URL + `planets/${id}/`).then(convertResponse)
     },
 
-    getPersonName(url) { // get person name from person url
-        return axios.get(url).then(response => response.data.name)
+    getPerson(url) { // get person from person url
+        return fetch(url).then(convertResponse)
     },
 
     searchPlanets(searchValue) { // search planets(page=1)
-        return axios.get(`https://swapi.dev/api/planets/?search=${searchValue}`).then(response => response.data)
+        return fetch(BASE_URL + `planets/?search=${searchValue}`).then(convertResponse)
     }
 }
 

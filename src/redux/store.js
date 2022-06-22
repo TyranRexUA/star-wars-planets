@@ -5,9 +5,9 @@ import currentPlanetReducer from './currentPlanetReducer';
 import searchFormReducer from './searchFormReducer';
 
 const reducers = combineReducers({
-    planets: planetsReducer,
-    currentPlanet: currentPlanetReducer,
-    searchForm: searchFormReducer,
+  planets: planetsReducer,
+  currentPlanet: currentPlanetReducer,
+  searchForm: searchFormReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // ReduxDevTools for Chrome

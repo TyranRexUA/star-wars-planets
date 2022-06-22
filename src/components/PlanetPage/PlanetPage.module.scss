@@ -1,7 +1,7 @@
 @import './../../variables';
 
 .PlanetPage {
-    margin: 20px;
+  margin: 20px;
 	padding: 10px;
 	display: flex;
 	flex-wrap: wrap;
@@ -11,7 +11,6 @@
 				rgba($color: $secondaryColor, $alpha: 0.5) 0%,
 				rgba($color: $secondaryColor, $alpha: 0) 80%
 			);
-	
 	img {
 		margin: 40px 10px 20px 5px;
 		border: 2px solid black;

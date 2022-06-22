@@ -1,0 +1,24 @@
+directories:
+  output: dist
+  buildResources: public
+appId: com.electron.star-wars-planets
+extends: null
+productName: Star Wars Planets
+files:
+  - filter:
+      - electron/**/*
+      - build/**/*
+      - node_modules/**/*
+      - ./public/**/*
+extraMetadata:
+  main: electron/index.js
+mac:
+  target: dmg
+  icon: ./public/logo512.png
+win:
+  target: nsis
+  icon: ./public/logo512.png
+linux:
+  target: deb
+  icon: ./public/logo512.png
+
