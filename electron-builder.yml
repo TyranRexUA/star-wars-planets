@@ -15,6 +15,7 @@ extraMetadata:
 mac:
   target: dmg
   icon: ./public/logo512.png
+  identity: null
 win:
   target: nsis
   icon: ./public/logo512.png

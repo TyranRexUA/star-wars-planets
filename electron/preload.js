@@ -5,7 +5,5 @@ contextBridge.exposeInMainWorld("electron", {
     ...ipcRenderer,
     on: (eventName, fn) => {
     ipcRenderer.on(eventName, (event, ...args) => fn(event, ...args));
-  }},
-  batteryApi: {},
-  fileApi: {},
+  }}
 });

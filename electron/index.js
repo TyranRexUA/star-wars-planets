@@ -11,7 +11,7 @@ const createWindow = () => {
     width: 800,
     height: 600,
     autoHideMenuBar: !isDev,
-    titleBarStyle: isDev ? 'default' : 'hidden',
+    titleBarStyle: isDev || process.platform !== 'win32' ? 'default' : 'hidden',
     minWidth: 800,
     minHeight: 600,
     show: false,
@@ -22,7 +22,6 @@ const createWindow = () => {
     },
     icon: path.join(__dirname, '../public/favicon.ico'),
     webPreferences: {
-      nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js'),
     },
   });

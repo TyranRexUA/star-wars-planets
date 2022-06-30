@@ -31,9 +31,9 @@
     "dev": "concurrently -k \"cross-env BROWSER=none REACT_APP_ELECTRON=true npm start\" \"npm:electron\"",
     "electron": "wait-on tcp:3000 && electron .",
     "ebuild": "cross-env REACT_APP_ELECTRON=true npm run build && electron-builder",
-    "ebuild:mac": "cross-env REACT_APP_ELECTRON=true npm run build && electron-builder -m -c.extraMetadata.main=electron/electron.js",
-    "ebuild:win": "cross-env REACT_APP_ELECTRON=true npm run build && electron-builder -w -c.extraMetadata.main=electron/electron.js",
-    "ebuild:linux": "cross-env REACT_APP_ELECTRON=true npm run build && electron-builder -l -c.extraMetadata.main=electron/electron.js",
+    "ebuild:mac": "cross-env REACT_APP_ELECTRON=true npm run build && electron-builder -m",
+    "ebuild:win": "cross-env REACT_APP_ELECTRON=true npm run build && electron-builder -w",
+    "ebuild:linux": "cross-env REACT_APP_ELECTRON=true npm run build && electron-builder -l",
     "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {
