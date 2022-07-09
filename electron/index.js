@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 const isDev = require('electron-is-dev');
 
 let win;
@@ -10,8 +10,8 @@ const createWindow = () => {
   win = new BrowserWindow({
     width: 800,
     height: 600,
-    autoHideMenuBar: !isDev,
-    titleBarStyle: isDev || process.platform !== 'win32' ? 'default' : 'hidden',
+    autoHideMenuBar: true,
+    titleBarStyle: process.platform !== 'win32' ? 'default' : 'hidden',
     minWidth: 800,
     minHeight: 600,
     show: false,
@@ -25,6 +25,25 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js'),
     },
   });
+
+  const template = [
+    ...(process.platform === 'darwin' ? [{
+      label: app.name,
+      submenu: [
+        { role: 'about' },
+        { type: 'separator' },
+        { role: 'services' },
+        { type: 'separator' },
+        { role: 'hide' },
+        { role: 'hideOthers' },
+        { role: 'unhide' },
+        { type: 'separator' },
+        { role: 'quit' }
+      ]
+    }] : [])
+  ];
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
 
   win.loadURL(
     isDev
